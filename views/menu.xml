@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <menuitem id="menu_companycar_root"
+              name="Company Cars"
+              sequence="0"/>
+
+    <menuitem id="menu_car_master"
+              name="Car Details"
+              parent="menu_companycar_root"
+              sequence="0"/>
+
+    <menuitem id="menu_car"
+              name="Car"
+              parent="menu_car_master"
+              sequence="0"/>
+</odoo>
