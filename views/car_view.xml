@@ -8,11 +8,17 @@
         <field name="view_mode">kanban,tree,form</field>
         <field name="context">{}</field>
         <field name="help" type="html">
-            <p class="o_view_noncontent_smiling_face">
+            <p class="o_view_nocontent_smiling_face">
                 Add your first car to your database!
             </p>
         </field>
     </record>
+
+    <menuitem id="menu_car"
+              name="Car"
+              action="action_companycar_car"
+              parent="menu_car_master"
+              sequence="0"/>
 
 
 </odoo>

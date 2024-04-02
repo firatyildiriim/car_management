@@ -7,8 +7,9 @@
     'version': '1.0.0',
     'depends': [],
     'data': [
+        'security/ir.model.access.csv',
         'views/menu.xml',
         'views/car_view.xml',
     ],
-    'demo': []
+    'demo': [],
 }
