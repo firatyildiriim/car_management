@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+    <record id="=view_company_car_tree" model="ir.ui.view">
+        <field name="name">company.car.tree</field>
+        <field name="model">company.car</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id"/>
+                <field name="manufacturer"/>
+                <field name="year"/>
+                <field name="model"/>
+                <field name="plate"/>
+                <field name="fuel_type"/>
+                <field name="transmission"/>
+                <field name="mileage"/>
+                <field name="buying_date"/>
+                <field name="price"/>
+                <field name="warranty"/>
+            </tree>
+        </field>
+    </record>
+
+
     <record id="=view_company_car_form" model="ir.ui.view">
         <field name="name">company.car.form</field>
         <field name="model">company.car</field>
@@ -11,15 +32,18 @@
                         <group>
                             <field name="manufacturer"/>
                             <field name="year"/>
+                            <field name="color"/>
                             <field name="mileage"/>
                             <field name="fuel_type"/>
                             <field name="buying_date"/>
                             <field name="price"/>
-                            <field name="color"/>
+                            <field name="active" invisible="1"/>
+
                         </group>
                         <group>
                             <field name="model"/>
                             <field name="plate"/>
+                            <field name="transmission"/>
                             <field name="last_milage"/>
                             <field name="warranty"/>
                             <field name="selling_date"/>
@@ -30,6 +54,35 @@
             </form>
         </field>
     </record>
+
+    <record id="=view_company_car_search" model="ir.ui.view">
+        <field name="name">company.car.search</field>
+        <field name="model">company.car</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="plate"/>
+                <field name="id"/>
+                <field name="model"/>
+                <filter name="filter_gasoline" string="Gasoline Fuel" domain="[('fuel_type', '=', 'gas')]"/>
+                <filter name="filter_diesel" string="Diesel Fuel" domain="[('fuel_type', '=', 'diesel')]"/>
+                <filter name="filter_at" string="Automatic" domain="[('transmission', '=', 'automatic')]"/>
+                <filter name="filter_mt" string="Manuel" domain="[('transmission', '=', 'manuel')]"/>
+                <filter name="filter_yeswarranty" string="With Warranty" domain="[('warranty', '=', 'yes')]"/>
+                <filter name="filter_nowarranty" string="No Warranty" domain="[('warranty', '=', 'no')]"/>
+                <separator/>
+                <filter name="filter_archieved" string="Archieved" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter name="filter_less" string="Less than 100.000 kilometers" domain="[('mileage', '&lt;=', 100000)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Fuel Type" name="group_by_fuel" context="{'group_by':'fuel_type'}"/>
+                    <filter string="Transmission Type" name="group_by_transmission" context="{'group_by':'transmission'}"/>
+                    <filter string="Warranty Status" name="group_by_warranty" context="{'group_by':'warranty'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
 
     <record id="action_companycar_car" model="ir.actions.act_window">
         <field name="name">Cars</field>
