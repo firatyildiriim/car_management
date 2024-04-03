@@ -12,9 +12,9 @@ class CompanyCar(models.Model):
     last_milage = fields.Float(string='Last Milage', required=True)
     fuel_type = fields.Selection([('gas', 'Gasoline'), ('diesel', 'Diesel')], string='Fuel type', required=True)
     warranty = fields.Selection([('yes', 'Yes'), ('no', 'No')] , string='Warranty', required=True)
-    color = fields.Char(string='Color', required=True)
     buying_date = fields.Datetime(string='Buying Date', required=True)
-    selling_date = fields.Datetime(string='Selling', required=False)
+    selling_date = fields.Datetime(string='Selling Date', required=False)
     price = fields.Float(string='Price', required=True)
     lastprice = fields.Float(string='Selling Price', required=False)
+    color = fields.Char(string='Color', required=True)
 

@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+    <record id="=view_company_car_form" model="ir.ui.view">
+        <field name="name">company.car.form</field>
+        <field name="model">company.car</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="manufacturer"/>
+                            <field name="year"/>
+                            <field name="mileage"/>
+                            <field name="fuel_type"/>
+                            <field name="buying_date"/>
+                            <field name="price"/>
+                            <field name="color"/>
+                        </group>
+                        <group>
+                            <field name="model"/>
+                            <field name="plate"/>
+                            <field name="last_milage"/>
+                            <field name="warranty"/>
+                            <field name="selling_date"/>
+                            <field name="lastprice"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <record id="action_companycar_car" model="ir.actions.act_window">
         <field name="name">Cars</field>
         <field name="type">ir.actions.act_window</field>
@@ -15,7 +45,7 @@
     </record>
 
     <menuitem id="menu_car"
-              name="Car"
+              name="Cars"
               action="action_companycar_car"
               parent="menu_car_master"
               sequence="0"/>
