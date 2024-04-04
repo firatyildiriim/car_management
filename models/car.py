@@ -2,14 +2,15 @@ from odoo import api, fields, models
 
 class CompanyCar(models.Model):
     _name = 'company.car'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Company Car'
 
     manufacturer = fields.Char(string='Manufacturer Name', required=True)
-    model = fields.Char(string='Model Name', required=True)
+    model = fields.Char(string='Model Name', required=True, tracking=True)
     year = fields.Char(string='Year', required=True)
-    plate = fields.Char(string='Plate Number', required=True)
-    mileage = fields.Integer(string='Mileage', required=True)
-    last_milage = fields.Integer(string='Last Milage', required=True)
+    plate = fields.Char(string='Plate Number', required=True, tracking=True)
+    mileage = fields.Integer(string='Mileage(km)', required=True, tracking=True)
+    engine_power = fields.Char(string='Engine Power', required=True)
     fuel_type = fields.Selection([('gas', 'Gasoline'), ('diesel', 'Diesel')], string='Fuel type', required=True)
     warranty = fields.Selection([('yes', 'Yes'), ('no', 'No')] , string='Warranty', required=True)
     buying_date = fields.Datetime(string='Buying Date', required=True)

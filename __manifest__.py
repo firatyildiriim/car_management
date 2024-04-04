@@ -5,7 +5,8 @@
     'application': True,
     'category': 'Car Fleet Organization',
     'version': '1.0.0',
-    'depends': [],
+    'depends': ['mail',
+                ],
     'data': [
         'security/ir.model.access.csv',
         'views/menu.xml',
