@@ -10,5 +10,14 @@
               parent="menu_companycar_root"
               sequence="0"/>
 
+    <menuitem id="menu_assignment_master"
+              name="Assignments"
+              parent="menu_companycar_root"
+              sequence="20"/>
+
+        <menuitem id="menu_employee_master"
+              name="Employees"
+              parent="menu_companycar_root"
+              sequence="20"/>
 
 </odoo>

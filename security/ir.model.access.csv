@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access.company.car,access_company_car,car_management.model_company_car,base.group_user,1,1,1,1
 access.company.assignment,access_company_assignment,car_management.model_company_assignment,base.group_user,1,1,1,1
+access.company.employee,access_company_employee,car_management.model_company_employee,base.group_user,1,1,1,1

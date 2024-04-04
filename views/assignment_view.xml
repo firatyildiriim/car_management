@@ -6,6 +6,13 @@
         <field name="model">company.assignment</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="employee_id" string="Driver"/>
+                <field name="manufacturer"/>
+                <field name="model"/>
+                <field name="car_id" string="Plate"/>
+                <field name="mileage"/>
+                <field name="assignment_date"/>
+                <field name="end_assignment_date"/>
             </tree>
         </field>
     </record>
@@ -20,8 +27,17 @@
                     <group>
                         <group>
                             <field name="car_id"/>
+                            <field name="manufacturer"/>
+                            <field name="employee_id"/>
+                            <field name="age"/>
+                            <field name="assignment_date"/>
                         </group>
                         <group>
+                            <field name="mileage"/>
+                            <field name="model"/>
+                            <field name="gender"/>
+                            <field name="driver_license"/>
+                            <field name="end_assignment_date"/>
                         </group>
                     </group>
                 </sheet>
@@ -44,7 +60,6 @@
     </record>
 
 
-
     <record id="action_companycar_assignment" model="ir.actions.act_window">
         <field name="name">Assignments</field>
         <field name="type">ir.actions.act_window</field>
@@ -61,8 +76,8 @@
     <menuitem id="menu_assignment"
               name="Assignments"
               action="action_companycar_assignment"
-              parent="menu_car_master"
-              sequence="0"/>
+              parent="menu_assignment_master"
+              sequence="10"/>
 
 
 </odoo>

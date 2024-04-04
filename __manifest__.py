@@ -12,6 +12,7 @@
         'views/menu.xml',
         'views/car_view.xml',
         'views/assignment_view.xml',
+        'views/employee_view.xml',
     ],
     'demo': [],
 }
