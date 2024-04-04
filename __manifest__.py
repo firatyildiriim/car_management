@@ -11,6 +11,7 @@
         'security/ir.model.access.csv',
         'views/menu.xml',
         'views/car_view.xml',
+        'views/assignment_view.xml',
     ],
     'demo': [],
 }

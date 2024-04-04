@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="=view_company_assignment_tree" model="ir.ui.view">
+        <field name="name">company.assignment.tree</field>
+        <field name="model">company.assignment</field>
+        <field name="arch" type="xml">
+            <tree>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="=view_company_assignment_form" model="ir.ui.view">
+        <field name="name">company.assignment.form</field>
+        <field name="model">company.assignment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="car_id"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="=view_company_assignment_search" model="ir.ui.view">
+        <field name="name">company.assignment.search</field>
+        <field name="model">company.assignment</field>
+        <field name="arch" type="xml">
+            <search>
+            </search>
+        </field>
+    </record>
+
+
+
+    <record id="action_companycar_assignment" model="ir.actions.act_window">
+        <field name="name">Assignments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">company.assignment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add your first assignment to your database!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_assignment"
+              name="Assignments"
+              action="action_companycar_assignment"
+              parent="menu_car_master"
+              sequence="0"/>
+
+
+</odoo>

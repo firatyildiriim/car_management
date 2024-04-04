@@ -6,7 +6,6 @@
         <field name="model">company.car</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="id"/>
                 <field name="manufacturer"/>
                 <field name="year"/>
                 <field name="model"/>
@@ -17,6 +16,7 @@
                 <field name="buying_date"/>
                 <field name="price"/>
                 <field name="warranty"/>
+                <field name="id"/>
             </tree>
         </field>
     </record>

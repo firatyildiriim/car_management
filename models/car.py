@@ -2,6 +2,7 @@ from odoo import api, fields, models
 
 class CompanyCar(models.Model):
     _name = 'company.car'
+    _rec_name = 'plate'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Company Car'
 
