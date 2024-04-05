@@ -17,4 +17,23 @@ class CompanyAssignment(models.Model):
     gender = fields.Selection(related='employee_id.gender', string='Gender', required=True)
     age = fields.Integer(related='employee_id.age', string='Age', required=True)
     driver_license = fields.Selection(related='employee_id.driver_license', string='Drivers License', required=True)
+    receipt = fields.Html(string='Receipt')
+    note = fields.Text(string='Note')
+    priority = fields.Selection([('0', 'Normal'), ('1', 'Low'), ('2', 'High'), ('3', 'Very High')], string='Priority')
+    state = fields.Selection([('waiting', 'Waiting for Assignment'), ('in_process', 'In Assignment Process'), ('assigned', 'Assigned'), ('cancelled', 'Cancelled')], default ='waiting' ,string='Status')
 
+    def action_cancel(self):
+        for rec in self:
+            rec.state = 'cancelled'
+
+    def action_waiting(self):
+        for rec in self:
+            rec.state = 'waiting'
+
+    def action_process(self):
+        for rec in self:
+            rec.state = 'in_process'
+
+    def action_assigned(self):
+        for rec in self:
+            rec.state = 'assigned'
