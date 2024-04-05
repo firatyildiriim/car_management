@@ -22,6 +22,30 @@
     </record>
 
 
+    <record id="view_company_car_pivot" model="ir.ui.view">
+        <field name="name">company.car.pivot</field>
+        <field name="model">company.car</field>
+        <field name="arch" type="xml">
+            <pivot string="Cars">
+                <field name="plate" type="col" interval="mileage"/>
+                <field name="write_date" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+
+    <record id="view_company_car_graph" model="ir.ui.view">
+        <field name="name">company.car.graph</field>
+        <field name="model">company.car</field>
+        <field name="arch" type="xml">
+            <graph string="Mileage Statistics">
+                <field name="plate"/>
+                <field name="write_date"/>
+            </graph>
+        </field>
+    </record>
+
+
     <record id="=view_company_car_form" model="ir.ui.view">
         <field name="name">company.car.form</field>
         <field name="model">company.car</field>
@@ -77,12 +101,15 @@
                 <separator/>
                 <filter name="filter_archieved" string="Archieved" domain="[('active', '=', False)]"/>
                 <separator/>
-                <filter name="filter_less" string="Less than 100.000 kilometers" domain="[('mileage', '&lt;=', 100000)]"/>
+                <filter name="filter_less" string="Less than 100.000 kilometers"
+                        domain="[('mileage', '&lt;=', 100000)]"/>
                 <group expand="0" string="Group By">
                     <filter string="Fuel Type" name="group_by_fuel" context="{'group_by':'fuel_type'}"/>
-                    <filter string="Transmission Type" name="group_by_transmission" context="{'group_by':'transmission'}"/>
+                    <filter string="Transmission Type" name="group_by_transmission"
+                            context="{'group_by':'transmission'}"/>
                     <filter string="Warranty Status" name="group_by_warranty" context="{'group_by':'warranty'}"/>
                     <filter string="Manufacturer" name="group_by_manufacturer" context="{'group_by':'manufacturer'}"/>
+                    <filter string="Mileage (km)" name="group_by_mileage" context="{'group_by':'mileage'}"/>
                 </group>
                 <searchpanel>
                     <field name="fuel_type" string="Fuel Type" enable_counters="1" icon="fa-align-justify"/>
@@ -94,13 +121,12 @@
     </record>
 
 
-
     <record id="action_companycar_car" model="ir.actions.act_window">
         <field name="name">Cars</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">company.car</field>
-        <field name="view_mode">tree,form,kanban</field>
-        <field name="context">{'search_default_group_by_manufacturer': 1}</field>
+        <field name="view_mode">tree,form,kanban,pivot,graph</field>
+        <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Add your first car to your database!
